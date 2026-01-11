@@ -6,6 +6,12 @@ import java.lang.reflect.Field;
 import java.util.Optional;
 
 public class RangeStrategy implements ValidationStrategy{
+    /**
+     * Func validate
+     * @param obj Object type
+     * @param field Field to check
+     * @return Returns potential error messages.
+     */
     @Override
     public Optional<String> validate(Object obj, Field field) {
 

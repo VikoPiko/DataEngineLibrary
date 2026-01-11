@@ -7,7 +7,12 @@ import java.util.Optional;
 import java.util.regex.Pattern;
 
 public class RegexStrategy implements ValidationStrategy{
-
+    /**
+     * Func validate
+     * @param obj Object type
+     * @param field Field to check
+     * @return Returns potential error messages.
+     */
     @Override
     public Optional<String> validate(Object obj, Field field){
         try{
