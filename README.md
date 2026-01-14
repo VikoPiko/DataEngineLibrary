@@ -18,11 +18,10 @@ mvn clean verify
 ### How to add as a depedency
 * To add the library as a dependency, after installing it can be added to the *pom.xml* file with the following code:
 ```
- <dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter</artifactId>
-    <version>5.10.0</version>
-    <scope>test</scope>
+<dependency>
+   <groupId>com.viko</groupId>
+   <artifactId>DataEngine</artifactId>
+   <version>1.0-SNAPSHOT</version>
 </dependency>
 ```
 
