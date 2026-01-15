@@ -40,9 +40,9 @@ Library is build to be easily extendable.
 To use it simply add as a dependency, create a class (DTO) for the data needed to be ran through the validators, and give it the appropriate mappings.
 
 ### Example implementation:
-
+@FileSource takes in a delimiter, as well as an optional commentPrefix (default is '#'), or can store an array of prefixes to ignore.
 ```
-@FileSource(delimiter = ",")
+@FileSource(delimiter = ",", commentPrefixes=[]) 
 public class MockClass {
     @NotNull(message = "name is required")
     @Column(index = 0, name = "name1")
