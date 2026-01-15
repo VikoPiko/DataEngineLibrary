@@ -25,7 +25,7 @@ public class ValidationTest {
 
         assertThrows(
                 IllegalArgumentException.class,
-                () -> parser.parse("test.txt", NoFileSource.class)
+                () -> parser.parse("malformed.txt", NoFileSource.class,  GenericParser.ParsingMode.STRICT)
         );
     }
 

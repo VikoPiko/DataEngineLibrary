@@ -20,7 +20,7 @@ public class ParserTest {
 
         GenericParser parser = new GenericParser();
 
-        List<MockClass> result = parser.parse(file.toString(), MockClass.class);
+        List<MockClass> result = parser.parse(file.toString(), MockClass.class, GenericParser.ParsingMode.LENIENT);
 
         assertEquals(1, result.size());
         assertEquals("Data", result.get(0).name);
@@ -46,7 +46,7 @@ public class ParserTest {
 
         assertThrows(
                 ParsingException.class,
-                () -> parser.parse(file.toString(), MockClass.class)
+                () -> parser.parse(file.toString(), MockClass.class, GenericParser.ParsingMode.LENIENT)
         );
     }
 }

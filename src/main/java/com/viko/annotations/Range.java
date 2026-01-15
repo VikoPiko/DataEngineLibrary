@@ -8,7 +8,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface Range {
+    public static final double MAX = 999999999.00;
     double min();
-    double max();
+    double max() default MAX;
     String message() default "Out of range!";
 }

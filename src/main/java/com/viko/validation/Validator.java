@@ -4,6 +4,10 @@ import com.viko.annotations.NotNull;
 import com.viko.annotations.Range;
 import com.viko.annotations.Regex;
 
+import com.viko.exception.GlobalErrorHandler;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.*;
@@ -14,6 +18,8 @@ import java.util.*;
  */
 
 public class Validator {
+
+    public static Logger logger = LogManager.getLogger(NotNullStrategy.class);
 
     private final Map<Class<? extends Annotation>, ValidationStrategy> strategies = Map.of(
             NotNull.class, new NotNullStrategy(),
@@ -33,7 +39,7 @@ public class Validator {
 
         for (T obj : objects) {
             Set<String> messages = new HashSet<>();
-
+            logger.info("mapping through object: {}", obj);
             for (Field field : obj.getClass().getDeclaredFields()) {
                 for (var entry : strategies.entrySet()) {
                     if (field.isAnnotationPresent(entry.getKey())) {
@@ -44,6 +50,7 @@ public class Validator {
                 }
             }
             if (!messages.isEmpty()) {
+                GlobalErrorHandler.log("Errors found during validation");
                 errors.put(obj, messages);
             }
         }
