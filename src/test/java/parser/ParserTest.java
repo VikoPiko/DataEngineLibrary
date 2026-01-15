@@ -46,7 +46,7 @@ public class ParserTest {
 
         assertThrows(
                 ParsingException.class,
-                () -> parser.parse(file.toString(), MockClass.class, GenericParser.ParsingMode.LENIENT)
+                () -> parser.parse(file.toString(), MockClass.class, GenericParser.ParsingMode.STRICT)
         );
     }
 }
